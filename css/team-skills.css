@@ -1,0 +1,460 @@
+/* ==========================================================
+   Team Agency Portfolio — Team Members & Skills Styles
+   File: css/team-skills.css
+   NO CSS variables, NO frameworks, NO external libraries
+   ========================================================== */
+
+/* ==========================================================
+   TEAM SECTION
+   ========================================================== */
+.team-section {
+  padding: 96px 24px;
+  background-color: #f5f7fa;
+  transition: background-color 0.35s ease;
+}
+
+body.dark-theme .team-section {
+  background-color: #0f1117;
+}
+
+.team-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* ── Team Grid ───────────────────────────────────────────── */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+/* ── Team Card ───────────────────────────────────────────── */
+.team-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+body.dark-theme .team-card {
+  background-color: #1a1d2e;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(42, 82, 152, 0.18);
+}
+
+body.dark-theme .team-card:hover {
+  box-shadow: 0 20px 48px rgba(91, 143, 249, 0.2);
+}
+
+/* ── Profile Image Wrapper ───────────────────────────────── */
+.team-card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #dbeafe;
+  position: relative;
+}
+
+body.dark-theme .team-card-image-wrapper {
+  background-color: #1e2d5a;
+}
+
+.team-card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.team-card:hover .team-card-image-wrapper img {
+  transform: scale(1.06);
+}
+
+/* Placeholder avatar shown when image is missing */
+.team-card-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: #2A5298;
+  background-color: #dbeafe;
+  user-select: none;
+}
+
+body.dark-theme .team-card-avatar-placeholder {
+  background-color: #1e2d5a;
+  color: #5B8FF9;
+}
+
+/* ── Card Body ───────────────────────────────────────────── */
+.team-card-body {
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.team-card-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a202c;
+  line-height: 1.2;
+}
+
+body.dark-theme .team-card-name {
+  color: #f7fafc;
+}
+
+.team-card-role {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #2A5298;
+}
+
+body.dark-theme .team-card-role {
+  color: #5B8FF9;
+}
+
+/* ── Member Skill Tags ───────────────────────────────────── */
+.team-card-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  list-style: none;
+}
+
+.team-skill-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background-color: #eef4ff;
+  color: #2A5298;
+  border: 1px solid #c3d8fd;
+  transition: background-color 0.2s ease, color 0.2s ease,
+              transform 0.2s ease;
+}
+
+body.dark-theme .team-skill-tag {
+  background-color: #1a2140;
+  color: #93c5fd;
+  border-color: #2a3d6a;
+}
+
+.team-card:hover .team-skill-tag {
+  background-color: #2A5298;
+  color: #ffffff;
+  border-color: #2A5298;
+}
+
+body.dark-theme .team-card:hover .team-skill-tag {
+  background-color: #5B8FF9;
+  color: #ffffff;
+  border-color: #5B8FF9;
+}
+
+/* ── GitHub Link ─────────────────────────────────────────── */
+.team-card-footer {
+  padding: 14px 20px;
+  border-top: 1px solid #edf2f7;
+  transition: border-color 0.35s ease;
+}
+
+body.dark-theme .team-card-footer {
+  border-top-color: #2d3748;
+}
+
+.team-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a5568;
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 4px 6px;
+  transition: color 0.25s ease, background-color 0.25s ease,
+              transform 0.2s ease;
+}
+
+body.dark-theme .team-github-link {
+  color: #a0aec0;
+}
+
+.team-github-link:hover,
+.team-github-link:focus-visible {
+  color: #2A5298;
+  background-color: #eef4ff;
+  transform: translateX(3px);
+  outline: none;
+}
+
+body.dark-theme .team-github-link:hover,
+body.dark-theme .team-github-link:focus-visible {
+  color: #5B8FF9;
+  background-color: #1a2140;
+}
+
+.team-github-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+/* ==========================================================
+   SKILLS SECTION
+   ========================================================== */
+.skills-section {
+  padding: 96px 24px;
+  background-color: #ffffff;
+  transition: background-color 0.35s ease;
+}
+
+body.dark-theme .skills-section {
+  background-color: #13151f;
+}
+
+.skills-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* ── Skills Grid ─────────────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ── Skill Card ──────────────────────────────────────────── */
+.skill-card {
+  background-color: #f5f7fa;
+  border-radius: 18px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+              border-color 0.3s ease, background-color 0.3s ease;
+  cursor: default;
+}
+
+body.dark-theme .skill-card {
+  background-color: #1a1d2e;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 44px rgba(42, 82, 152, 0.15);
+  border-color: #2A5298;
+  background-color: #eef4ff;
+}
+
+body.dark-theme .skill-card:hover {
+  box-shadow: 0 18px 44px rgba(91, 143, 249, 0.18);
+  border-color: #5B8FF9;
+  background-color: #1a2140;
+}
+
+/* ── Skill Icon ──────────────────────────────────────────── */
+.skill-icon-wrapper {
+  width: 68px;
+  height: 68px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon-wrapper {
+  transform: rotate(-6deg) scale(1.12);
+}
+
+/* Individual icon background colours */
+.skill-icon-html   { background-color: #fff0e6; }
+.skill-icon-css    { background-color: #e6f0ff; }
+.skill-icon-js     { background-color: #fffae6; }
+.skill-icon-github { background-color: #f0f0f0; }
+.skill-icon-api    { background-color: #e6fff6; }
+.skill-icon-ps     { background-color: #ffe6f0; }
+
+body.dark-theme .skill-icon-html   { background-color: #3d1f00; }
+body.dark-theme .skill-icon-css    { background-color: #001a3d; }
+body.dark-theme .skill-icon-js     { background-color: #3d3300; }
+body.dark-theme .skill-icon-github { background-color: #1a1a1a; }
+body.dark-theme .skill-icon-api    { background-color: #003d26; }
+body.dark-theme .skill-icon-ps     { background-color: #3d0026; }
+
+/* ── Skill Text ──────────────────────────────────────────── */
+.skill-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+body.dark-theme .skill-name {
+  color: #f7fafc;
+}
+
+.skill-description {
+  font-size: 0.9rem;
+  color: #718096;
+  line-height: 1.65;
+  max-width: 240px;
+}
+
+body.dark-theme .skill-description {
+  color: #a0aec0;
+}
+
+/* ── Skill Level Bar ─────────────────────────────────────── */
+.skill-level-track {
+  width: 100%;
+  height: 6px;
+  background-color: #e2e8f0;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+body.dark-theme .skill-level-track {
+  background-color: #2d3748;
+}
+
+.skill-level-fill {
+  height: 100%;
+  border-radius: 99px;
+  background-color: #2A5298;
+  width: 0;
+  transition: width 1s ease 0.2s;
+}
+
+body.dark-theme .skill-level-fill {
+  background-color: #5B8FF9;
+}
+
+.skill-card.animated .skill-level-fill {
+  width: var(--skill-width, 80%);
+}
+
+/* Inline style width is set by JS; fallback handled above */
+
+.skill-level-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #2A5298;
+  align-self: flex-end;
+}
+
+body.dark-theme .skill-level-label {
+  color: #5B8FF9;
+}
+
+/* ==========================================================
+   RESPONSIVE — 768px (Tablet)
+   ========================================================== */
+@media (max-width: 768px) {
+
+  /* Team */
+  .team-section {
+    padding: 72px 24px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  /* Skills */
+  .skills-section {
+    padding: 72px 24px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+/* ==========================================================
+   RESPONSIVE — 480px (Mobile)
+   ========================================================== */
+@media (max-width: 480px) {
+
+  /* Team */
+  .team-section {
+    padding: 56px 16px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .team-card-body {
+    padding: 20px 16px 16px;
+  }
+
+  .team-card-footer {
+    padding: 12px 16px;
+  }
+
+  /* Skills */
+  .skills-section {
+    padding: 56px 16px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .skill-card {
+    padding: 28px 20px;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .team-card,
+  .skill-card,
+  .skill-card:hover .skill-icon-wrapper,
+  .team-card:hover .team-card-image-wrapper img,
+  .skill-level-fill {
+    transition: none;
+    transform: none;
+  }
+}
