@@ -25,12 +25,7 @@ Team_agency_portfolio/
     └── icons/               # Custom icons & SVGs
 ```
 
-## Branches
 
-| Branch | Description |
-|--------|-------------|
-| `main` | Stable base branch with project structure |
-| `feature/header-hero` | Header, Navigation, Hero & About sections |
 
 ## Getting Started
 
@@ -41,15 +36,3 @@ cd Team_agency_portfolio
 
 Open `index.html` in your browser — no build step required.
 
-## Sections
-
-| Section | Status | Branch |
-|---------|--------|--------|
-| Header | ✅ Done | `feature/header-hero` |
-| Navigation | ✅ Done | `feature/header-hero` |
-| Hero | ✅ Done | `feature/header-hero` |
-| About | ✅ Done | `feature/header-hero` |
-| Team | 🔜 Upcoming | — |
-| Skills | 🔜 Upcoming | — |
-| Projects | 🔜 Upcoming | — |
-| Contact | 🔜 Upcoming | — |
