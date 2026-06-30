@@ -22,16 +22,16 @@
   var teamMembers = [
     {
       name:   "Abhishek Yadav",
-      role:   "Full Stack Developer",
-      avatar: "https://avatars.githubusercontent.com/u/294840363?v=4",
-      bio:    "Building end-to-end web solutions with clean, maintainable code.",
+      role:   "Frontend Developer",
+      avatar: "",
+      bio:    "Building responsive, clean UIs with a passion for great user experiences.",
       skills: ["HTML", "CSS", "JavaScript", "GitHub"],
       github: "https://github.com/abhishekydvtech65"
     },
     {
       name:   "Sumit Tiwari",
       role:   "Frontend Developer",
-      avatar: "https://avatars.githubusercontent.com/u/251316528?v=4",
+      avatar: "",
       bio:    "Crafting interactive UIs and seamless user experiences.",
       skills: ["JavaScript", "API Integration", "CSS", "Problem Solving"],
       github: "https://github.com/sumittiwari1302"
@@ -39,7 +39,7 @@
     {
       name:   "Rudraabhishek",
       role:   "Aspiring AI Engineer",
-      avatar: "https://avatars.githubusercontent.com/u/237174708?v=4",
+      avatar: "",
       bio:    "Building intelligent systems & real-world solutions. Learning ML, DSA & Web Dev.",
       skills: ["HTML", "CSS", "JavaScript", "Machine Learning"],
       github: "https://github.com/rudraabhishek-collab"
@@ -47,7 +47,7 @@
     {
       name:   "Khushi Shah",
       role:   "Frontend Engineer",
-      avatar: "https://avatars.githubusercontent.com/u/247197666?v=4",
+      avatar: "",
       bio:    "Turning designs into pixel-perfect, accessible web experiences.",
       skills: ["HTML", "CSS", "JavaScript", "localStorage"],
       github: "https://github.com/shahkhushi0307"
@@ -153,36 +153,24 @@
     card.classList.add("team-card");
     card.setAttribute("aria-label", member.name + ", " + member.role);
 
-    /* ── Image wrapper ── */
+    /* ── Image wrapper — initials avatar ── */
     var imgWrapper = document.createElement("div");
     imgWrapper.classList.add("team-card-image-wrapper");
 
-    var img = document.createElement("img");
-    img.classList.add("team-card-photo");
-    img.setAttribute("src", member.avatar);
-    img.setAttribute("alt", member.name + " profile photo");
-    img.setAttribute("loading", "lazy");
-    img.setAttribute("width", "300");
-    img.setAttribute("height", "300");
+    var initials = member.name
+      .split(" ")
+      .map(function (w) { return w.charAt(0); })
+      .join("")
+      .toUpperCase()
+      .slice(0, 2);
 
-    /* Fallback: show initials if the image fails to load */
-    img.addEventListener("error", function () {
-      var initials = member.name
-        .split(" ")
-        .map(function (w) { return w.charAt(0); })
-        .join("")
-        .toUpperCase()
-        .slice(0, 2);
-      imgWrapper.removeChild(img);
-      var fallback = document.createElement("div");
-      fallback.classList.add("team-card-avatar-placeholder");
-      fallback.setAttribute("role", "img");
-      fallback.setAttribute("aria-label", member.name + " avatar");
-      fallback.innerText = initials;
-      imgWrapper.appendChild(fallback);
-    });
+    var placeholder = document.createElement("div");
+    placeholder.classList.add("team-card-avatar-placeholder");
+    placeholder.setAttribute("role", "img");
+    placeholder.setAttribute("aria-label", member.name + " avatar");
+    placeholder.innerText = initials;
 
-    imgWrapper.appendChild(img);
+    imgWrapper.appendChild(placeholder);
     card.appendChild(imgWrapper);
 
     /* ── Card body ── */
