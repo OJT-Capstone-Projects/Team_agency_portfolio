@@ -135,31 +135,100 @@ body.dark-theme .project-card:hover {
 .project-card:nth-child(4) { animation-delay: 0.26s; }
 .project-card:nth-child(5) { animation-delay: 0.33s; }
 
-/* ── Card Image ──────────────────────────────────────────── */
+/* ── Card Image — iframe live preview ───────────────────── */
 .project-card-image-wrapper {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   position: relative;
   flex-shrink: 0;
+  background-color: #f0f4ff;
 }
 
-.project-card-image {
+body.dark-theme .project-card-image-wrapper {
+  background-color: #1a1d2e;
+}
+
+/* Container that holds iframe + fallback stacked */
+.project-iframe-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* The iframe is scaled down from 1280px → card width.
+   We set a fixed width on the iframe, then scale it with
+   transform so the full desktop layout is visible at thumb size. */
+.project-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 800px;
+  border: none;
+  transform-origin: top left;
+  /* Scale is applied inline by JS once the wrapper width is known */
+  transform: scale(0.25);
+  pointer-events: none;
+  display: block;
+  background-color: #ffffff;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+}
+
+.project-iframe.loaded {
+  opacity: 1;
+}
+
+/* Fallback emoji card — shown until iframe loads, or on error */
+.project-iframe-fallback {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3.5rem;
-  transition: transform 0.4s ease;
-  user-select: none;
+  transition: opacity 0.4s ease;
+  opacity: 1;
+  z-index: 1;
 }
 
-.project-card:hover .project-card-image {
-  transform: scale(1.08);
+.project-iframe.loaded + .project-iframe-fallback {
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* Individual project colour themes */
+/* Transparent overlay — blocks mouse so card hover still works */
+.project-iframe-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-color: transparent;
+  cursor: default;
+}
+
+/* Subtle zoom on card hover */
+.project-card:hover .project-iframe {
+  transform-origin: top left;
+}
+
+.project-card-image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(42, 82, 152, 0.06);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 3;
+}
+
+.project-card:hover .project-card-image-wrapper::after {
+  opacity: 1;
+}
+
+/* Individual project colour themes — used by fallback */
 .project-img-quiz {
   background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
 }
@@ -180,27 +249,16 @@ body.dark-theme .project-card:hover {
   background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%);
 }
 
-body.dark-theme .project-img-quiz    { background: linear-gradient(135deg, #1e2d5a 0%, #1a2445 100%); }
-body.dark-theme .project-img-expense { background: linear-gradient(135deg, #052e16 0%, #0a3321 100%); }
-body.dark-theme .project-img-news    { background: linear-gradient(135deg, #500724 0%, #3b0518 100%); }
-body.dark-theme .project-img-github  { background: linear-gradient(135deg, #18181b 0%, #27272a 100%); }
-body.dark-theme .project-img-kanban  { background: linear-gradient(135deg, #2e1065 0%, #1e0a4a 100%); }
-
-/* ── Overlay on hover ────────────────────────────────────── */
-.project-card-image-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(42, 82, 152, 0.08);
-  opacity: 0;
-  transition: opacity 0.35s ease;
+.project-img-portfolio {
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
 }
 
-.project-card:hover .project-card-image-wrapper::after {
-  opacity: 1;
-}
-
-/* ── Card Body ───────────────────────────────────────────── */
+body.dark-theme .project-img-quiz      { background: linear-gradient(135deg, #1e2d5a 0%, #1a2445 100%); }
+body.dark-theme .project-img-expense   { background: linear-gradient(135deg, #052e16 0%, #0a3321 100%); }
+body.dark-theme .project-img-news      { background: linear-gradient(135deg, #500724 0%, #3b0518 100%); }
+body.dark-theme .project-img-github    { background: linear-gradient(135deg, #18181b 0%, #27272a 100%); }
+body.dark-theme .project-img-kanban    { background: linear-gradient(135deg, #2e1065 0%, #1e0a4a 100%); }
+body.dark-theme .project-img-portfolio { background: linear-gradient(135deg, #0c2340 0%, #0a1929 100%); }
 .project-card-body {
   padding: 24px 22px 18px;
   display: flex;

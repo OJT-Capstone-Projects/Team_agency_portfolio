@@ -34,38 +34,20 @@
   /** @type {Project[]} */
   var projects = [
     {
-      id:          "quiz-app",
-      name:        "Interactive Quiz App",
-      description: "A dynamic quiz experience with multiple-choice questions, " +
-                   "a live score tracker, and a timed countdown. Questions are " +
-                   "loaded from a data array and the UI updates entirely without " +
-                   "page reloads.",
-      tech:        ["HTML", "CSS", "JavaScript", "DOM API"],
-      emoji:       "🧠",
-      imgClass:    "project-img-quiz",
+      id:          "kanban-board",
+      name:        "Kanban Task Board",
+      description: "A drag-and-drop task management board with To Do, In Progress, and Done columns. Tasks are created, moved, and deleted in the browser with full localStorage persistence.",
+      tech:        ["HTML", "CSS", "JavaScript", "Drag & Drop API", "localStorage"],
+      emoji:       "📋",
+      imgClass:    "project-img-kanban",
       category:    "javascript",
-      liveUrl:     "https://ojt-capstone-projects.github.io/Interactive-quiz-app/",
-      githubUrl:   "https://github.com/OJT-Capstone-Projects/Interactive-quiz-app"
-    },
-    {
-      id:          "expense-tracker",
-      name:        "Expense Tracker",
-      description: "Track income and expenses in real time. Entries are stored " +
-                   "in localStorage, displayed in a scrollable ledger, and " +
-                   "summarised with a live balance that updates on every change.",
-      tech:        ["HTML", "CSS", "JavaScript", "localStorage"],
-      emoji:       "💰",
-      imgClass:    "project-img-expense",
-      category:    "javascript",
-      liveUrl:     "https://ojt-capstone-projects.github.io/expense-tracker/",
-      githubUrl:   "https://github.com/OJT-Capstone-Projects/expense-tracker"
+      liveUrl:     "https://ojt-capstone-projects.github.io/Kanban--Task-board/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/Kanban--Task-board"
     },
     {
       id:          "live-news-feed",
       name:        "Live News Feed",
-      description: "Fetches the latest headlines from a public news API and " +
-                   "renders them as filterable cards. Supports keyword search " +
-                   "and category filtering with zero-reload article discovery.",
+      description: "The Bulletin Times — a newspaper-style news platform delivering the latest headlines from trusted sources across India and the world via public news API.",
       tech:        ["HTML", "CSS", "JavaScript", "Fetch API", "REST"],
       emoji:       "📰",
       imgClass:    "project-img-news",
@@ -76,9 +58,7 @@
     {
       id:          "github-explorer",
       name:        "GitHub Developer Explorer",
-      description: "Search any GitHub username and instantly view their public " +
-                   "repositories, follower count, and profile details — all " +
-                   "pulled live from the GitHub REST API.",
+      description: "Search any GitHub username and instantly view public repositories, follower count, language statistics, and full profile details pulled live from the GitHub REST API.",
       tech:        ["HTML", "CSS", "JavaScript", "GitHub API", "Fetch API"],
       emoji:       "🐙",
       imgClass:    "project-img-github",
@@ -87,28 +67,34 @@
       githubUrl:   "https://github.com/OJT-Capstone-Projects/Github-developer-explorer"
     },
     {
-      id:          "kanban-board",
-      name:        "Kanban Task Board",
-      description: "A drag-and-drop task management board with three columns: " +
-                   "To Do, In Progress, and Done. Tasks are created, moved, and " +
-                   "deleted in the browser with full localStorage persistence.",
-      tech:        ["HTML", "CSS", "JavaScript", "Drag & Drop API", "localStorage"],
-      emoji:       "📋",
-      imgClass:    "project-img-kanban",
+      id:          "quiz-app",
+      name:        "Interactive Quiz App",
+      description: "Quiz Master — a full-screen MCQ quiz app with subject selection, timed questions, instant feedback, score tracking, and light/dark theme switcher. Built with pure JavaScript.",
+      tech:        ["HTML", "CSS", "JavaScript", "DOM API"],
+      emoji:       "🧠",
+      imgClass:    "project-img-quiz",
       category:    "javascript",
-      liveUrl:     "https://ojt-capstone-projects.github.io/Kanban--Task-board/",
-      githubUrl:   "https://github.com/OJT-Capstone-Projects/Kanban--Task-board"
+      liveUrl:     "https://ojt-capstone-projects.github.io/Interactive-quiz-app/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/Interactive-quiz-app"
+    },
+    {
+      id:          "expense-tracker",
+      name:        "Expense Tracker",
+      description: "A financial management app to track income and expenses. Features transaction management, automatic balance calculation, spending analysis, and localStorage persistence.",
+      tech:        ["HTML", "CSS", "JavaScript", "localStorage"],
+      emoji:       "💰",
+      imgClass:    "project-img-expense",
+      category:    "javascript",
+      liveUrl:     "https://ojt-capstone-projects.github.io/expense-tracker/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/expense-tracker"
     },
     {
       id:          "team-agency-portfolio",
       name:        "Team Agency Portfolio",
-      description: "This very site — a multi-section agency portfolio built " +
-                   "with vanilla HTML, CSS, and JavaScript. Features dark/light " +
-                   "theme, scroll-spy navigation, animated counters, and fully " +
-                   "dynamic section rendering.",
+      description: "This very site — a multi-section agency portfolio with dark/light theme, scroll-spy navigation, animated counters, dynamic section rendering, and a contact form with validation.",
       tech:        ["HTML", "CSS", "JavaScript", "DOM API", "localStorage"],
       emoji:       "🚀",
-      imgClass:    "project-img-kanban",
+      imgClass:    "project-img-portfolio",
       category:    "javascript",
       liveUrl:     "https://ojt-capstone-projects.github.io/Team-Agency-Portfolio/",
       githubUrl:   "https://github.com/OJT-Capstone-Projects/Team-Agency-Portfolio"
@@ -186,17 +172,39 @@
     card.setAttribute("aria-label", project.name);
     card.setAttribute("data-category", project.category);
 
-    /* ── Image wrapper ── */
+    /* ── Image wrapper — live site iframe preview ── */
     var imgWrapper = document.createElement("div");
     imgWrapper.classList.add("project-card-image-wrapper");
 
-    var imgEl = document.createElement("div");
-    imgEl.classList.add("project-card-image", project.imgClass);
-    imgEl.setAttribute("role", "img");
-    imgEl.setAttribute("aria-label", project.name + " project illustration");
-    imgEl.innerText = project.emoji;
+    /* Iframe scaled down to fit the 16:9 card thumbnail */
+    var iframeContainer = document.createElement("div");
+    iframeContainer.classList.add("project-iframe-container");
 
-    imgWrapper.appendChild(imgEl);
+    var iframe = document.createElement("iframe");
+    iframe.classList.add("project-iframe");
+    iframe.setAttribute("src", project.liveUrl);
+    iframe.setAttribute("title", project.name + " live preview");
+    iframe.setAttribute("loading", "lazy");
+    iframe.setAttribute("sandbox", "allow-scripts allow-same-origin");
+    iframe.setAttribute("scrolling", "no");
+    iframe.setAttribute("tabindex", "-1");
+    iframe.setAttribute("aria-hidden", "true");
+
+    /* Fallback: if iframe fails, show the coloured emoji card */
+    var fallbackEl = document.createElement("div");
+    fallbackEl.classList.add("project-card-image", project.imgClass, "project-iframe-fallback");
+    fallbackEl.setAttribute("aria-hidden", "true");
+    fallbackEl.innerText = project.emoji;
+
+    /* Overlay — blocks mouse interaction so hover on card still works */
+    var iframeOverlay = document.createElement("div");
+    iframeOverlay.classList.add("project-iframe-overlay");
+    iframeOverlay.setAttribute("aria-hidden", "true");
+
+    iframeContainer.appendChild(iframe);
+    iframeContainer.appendChild(fallbackEl);
+    iframeContainer.appendChild(iframeOverlay);
+    imgWrapper.appendChild(iframeContainer);
     card.appendChild(imgWrapper);
 
     /* ── Card body ── */
@@ -460,7 +468,44 @@
   }
 
   /* =========================================================
-     SCROLL-IN ANIMATION (IntersectionObserver)
+     IFRAME SCALE + LOAD HANDLING
+     Calculates the correct CSS scale so the full 1280px desktop
+     layout of each project fits inside the 16:9 card thumbnail.
+     ========================================================= */
+
+  /**
+   * Scale all iframes to fill their wrapper containers.
+   * Called once after section is rendered and on window resize.
+   */
+  function scaleIframes() {
+    var wrappers = document.querySelectorAll(".project-card-image-wrapper");
+    wrappers.forEach(function (wrapper) {
+      var iframe = wrapper.querySelector(".project-iframe");
+      if (!iframe) { return; }
+      var wrapperWidth = wrapper.offsetWidth;
+      if (!wrapperWidth) { return; }
+      var scale = wrapperWidth / 1280;
+      iframe.style.transform = "scale(" + scale + ")";
+      /* Height: wrapper aspect-ratio 16/9 → wrapperHeight = wrapperWidth * 9/16 */
+      var wrapperHeight = wrapperWidth * 9 / 16;
+      iframe.style.height = Math.round(wrapperHeight / scale) + "px";
+    });
+  }
+
+  /**
+   * Attach load / error events to each iframe so we can:
+   *  - Show the iframe once it loads (.loaded class)
+   *  - Keep the fallback visible if it errors
+   */
+  function initIframeEvents() {
+    var iframes = document.querySelectorAll(".project-iframe");
+    iframes.forEach(function (iframe) {
+      iframe.addEventListener("load", function () {
+        iframe.classList.add("loaded");
+      });
+      /* On error keep fallback — do nothing special */
+    });
+  }
      Triggers card entry animations as the section scrolls
      into view, using querySelectorAll() + forEach().
      ========================================================= */
@@ -497,7 +542,12 @@
      ========================================================= */
   function init() {
     renderProjectsSection();
+    scaleIframes();
+    initIframeEvents();
     initScrollAnimation();
+
+    /* Re-scale on resize in case card width changes */
+    window.addEventListener("resize", scaleIframes, { passive: true });
   }
 
   if (document.readyState === "loading") {

@@ -18,35 +18,39 @@
      DATA
      ========================================================= */
 
-  /** @type {Array<{name: string, role: string, avatar: string, skills: string[], github: string}>} */
+  /** @type {Array<{name: string, role: string, avatar: string, bio: string, skills: string[], github: string}>} */
   var teamMembers = [
     {
       name:   "Abhishek Yadav",
       role:   "Full Stack Developer",
-      avatar: "👨‍💻",
+      avatar: "https://avatars.githubusercontent.com/u/294840363?v=4",
+      bio:    "Building end-to-end web solutions with clean, maintainable code.",
       skills: ["HTML", "CSS", "JavaScript", "GitHub"],
-      github: "https://github.com/OJT-Capstone-Projects"
+      github: "https://github.com/abhishekydvtech65"
     },
     {
       name:   "Sumit Tiwari",
       role:   "Frontend Developer",
-      avatar: "👨‍🔬",
+      avatar: "https://avatars.githubusercontent.com/u/251316528?v=4",
+      bio:    "Crafting interactive UIs and seamless user experiences.",
       skills: ["JavaScript", "API Integration", "CSS", "Problem Solving"],
-      github: "https://github.com/OJT-Capstone-Projects"
+      github: "https://github.com/sumittiwari1302"
     },
     {
-      name:   "Rudra",
-      role:   "UI Developer",
-      avatar: "👨‍🎨",
-      skills: ["HTML", "CSS", "JavaScript", "Drag & Drop API"],
-      github: "https://github.com/OJT-Capstone-Projects"
+      name:   "Rudraabhishek",
+      role:   "Aspiring AI Engineer",
+      avatar: "https://avatars.githubusercontent.com/u/237174708?v=4",
+      bio:    "Building intelligent systems & real-world solutions. Learning ML, DSA & Web Dev.",
+      skills: ["HTML", "CSS", "JavaScript", "Machine Learning"],
+      github: "https://github.com/rudraabhishek-collab"
     },
     {
       name:   "Khushi Shah",
       role:   "Frontend Engineer",
-      avatar: "👩‍💼",
+      avatar: "https://avatars.githubusercontent.com/u/247197666?v=4",
+      bio:    "Turning designs into pixel-perfect, accessible web experiences.",
       skills: ["HTML", "CSS", "JavaScript", "localStorage"],
-      github: "https://github.com/OJT-Capstone-Projects"
+      github: "https://github.com/shahkhushi0307"
     }
   ];
 
@@ -153,13 +157,32 @@
     var imgWrapper = document.createElement("div");
     imgWrapper.classList.add("team-card-image-wrapper");
 
-    var placeholder = document.createElement("div");
-    placeholder.classList.add("team-card-avatar-placeholder");
-    placeholder.setAttribute("role", "img");
-    placeholder.setAttribute("aria-label", member.name + " avatar");
-    placeholder.innerText = member.avatar;
+    var img = document.createElement("img");
+    img.classList.add("team-card-photo");
+    img.setAttribute("src", member.avatar);
+    img.setAttribute("alt", member.name + " profile photo");
+    img.setAttribute("loading", "lazy");
+    img.setAttribute("width", "300");
+    img.setAttribute("height", "300");
 
-    imgWrapper.appendChild(placeholder);
+    /* Fallback: show initials if the image fails to load */
+    img.addEventListener("error", function () {
+      var initials = member.name
+        .split(" ")
+        .map(function (w) { return w.charAt(0); })
+        .join("")
+        .toUpperCase()
+        .slice(0, 2);
+      imgWrapper.removeChild(img);
+      var fallback = document.createElement("div");
+      fallback.classList.add("team-card-avatar-placeholder");
+      fallback.setAttribute("role", "img");
+      fallback.setAttribute("aria-label", member.name + " avatar");
+      fallback.innerText = initials;
+      imgWrapper.appendChild(fallback);
+    });
+
+    imgWrapper.appendChild(img);
     card.appendChild(imgWrapper);
 
     /* ── Card body ── */
@@ -175,6 +198,11 @@
     var roleEl = document.createElement("p");
     roleEl.classList.add("team-card-role");
     roleEl.innerText = member.role;
+
+    /* Bio */
+    var bioEl = document.createElement("p");
+    bioEl.classList.add("team-card-bio");
+    bioEl.innerText = member.bio;
 
     /* Skills list — uses map() to build the items, forEach() to append */
     var skillsList = document.createElement("ul");
@@ -196,6 +224,7 @@
 
     body.appendChild(nameEl);
     body.appendChild(roleEl);
+    body.appendChild(bioEl);
     body.appendChild(skillsList);
     card.appendChild(body);
 
