@@ -4,25 +4,188 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Team Agency Portfolio</title>
-    <!-- Stylesheets will be linked here as sections are built -->
+    <link rel="stylesheet" href="css/header-hero.css" />
+    <link rel="stylesheet" href="css/team-skills.css" />
+    <link rel="stylesheet" href="css/projects.css" />
+    <link rel="stylesheet" href="css/contact-footer.css" />
   </head>
-  <body>
+  <body class="light-theme">
 
-    <!-- Header will be added in feature/header-hero -->
+    <!-- ===== HEADER ===== -->
+    <header id="main-header">
+      <div class="header-inner">
 
-    <!-- Hero Section will be added in feature/header-hero -->
+        <!-- Logo + Name -->
+        <div class="brand">
+          <div class="logo" aria-label="Team Agency Logo">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="40" height="40" rx="8" fill="#2A5298"/>
+              <path d="M8 12h24M8 20h16M8 28h20" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="30" cy="26" r="5" fill="#5B8FF9"/>
+            </svg>
+          </div>
+          <span class="agency-name">Team Agency</span>
+        </div>
 
-    <!-- About Section will be added in feature/header-hero -->
+        <!-- Navigation -->
+        <nav id="main-nav" aria-label="Primary navigation">
+          <ul class="nav-list" role="list">
+            <li><a href="#home"     class="nav-link active" aria-current="page">Home</a></li>
+            <li><a href="#about"    class="nav-link">About</a></li>
+            <li><a href="#team"     class="nav-link">Team</a></li>
+            <li><a href="#skills"   class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact"  class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
 
-    <!-- Team Section will be added in feature/team -->
+        <!-- Right controls -->
+        <div class="header-controls">
+          <!-- Theme Toggle Placeholder -->
+          <button
+            id="theme-toggle"
+            class="theme-btn"
+            aria-label="Toggle dark/light theme"
+            title="Toggle theme"
+          >
+            <span class="theme-icon" id="theme-icon">☀️</span>
+          </button>
 
-    <!-- Skills Section will be added in feature/skills -->
+          <!-- Hamburger (mobile) -->
+          <button
+            id="hamburger"
+            class="hamburger"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="main-nav"
+          >
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
 
-    <!-- Projects Section will be added in feature/projects -->
+      </div>
+    </header>
 
-    <!-- Contact Section will be added in feature/contact -->
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Welcome to Team Agency</p>
+        <h1 class="hero-heading">
+          We Build <span class="accent">Digital</span> Experiences<br />
+          That <span class="accent">Inspire</span>
+        </h1>
+        <p class="hero-tagline">Creative Strategy &bull; Design Excellence &bull; Technical Precision</p>
+        <p class="hero-description">
+          A passionate team of designers, developers, and strategists dedicated to
+          crafting compelling digital solutions that help brands grow and connect
+          with their audiences in meaningful ways.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn btn-primary">View Our Work</a>
+          <a href="#contact"  class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-card card-1">Strategy</div>
+        <div class="visual-card card-2">Design</div>
+        <div class="visual-card card-3">Development</div>
+      </div>
+    </section>
 
-    <!-- Scripts will be linked here as sections are built -->
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about-section">
+      <div class="about-inner">
 
+        <div class="section-header">
+          <p class="section-label">Who We Are</p>
+          <h2 class="section-title">About Team Agency</h2>
+          <p class="section-subtitle">
+            A multidisciplinary agency built on collaboration, creativity, and code.
+          </p>
+        </div>
+
+        <div class="about-intro">
+          <p>
+            Team Agency was founded with a single belief: that great digital work
+            happens when talented people unite around a shared purpose. Since our
+            inception, we have partnered with startups, scale-ups, and enterprises
+            to deliver work that is both beautiful and high-performing.
+          </p>
+          <p>
+            Our crew spans strategy, UX design, front-end and back-end engineering,
+            and content — giving clients everything they need under one roof.
+          </p>
+        </div>
+
+        <div class="mv-grid">
+
+          <!-- Mission -->
+          <div class="mv-card mission-card">
+            <div class="mv-icon" aria-hidden="true">🎯</div>
+            <h3 class="mv-title">Our Mission</h3>
+            <p class="mv-text">
+              To empower brands with purposeful digital solutions — blending
+              strategic thinking, bold design, and clean code to create products
+              that solve real problems and delight real people.
+            </p>
+          </div>
+
+          <!-- Vision -->
+          <div class="mv-card vision-card">
+            <div class="mv-icon" aria-hidden="true">🔭</div>
+            <h3 class="mv-title">Our Vision</h3>
+            <p class="mv-text">
+              To be the most trusted creative-technology partner for ambitious
+              teams worldwide — recognised not only for the quality of our craft
+              but for the lasting impact we create for every client we serve.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Stats row -->
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-number" data-target="120">0</span>
+            <span class="stat-label">Projects Delivered</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="48">0</span>
+            <span class="stat-label">Happy Clients</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="8">0</span>
+            <span class="stat-label">Years of Experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="15">0</span>
+            <span class="stat-label">Team Members</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== TEAM MEMBERS SECTION (rendered by JS) ===== -->
+    <div id="team-section-mount" aria-hidden="true"></div>
+
+    <!-- ===== SKILLS SECTION (rendered by JS) ===== -->
+    <div id="skills-section-mount" aria-hidden="true"></div>
+
+    <!-- ===== PROJECTS SECTION (rendered by JS) ===== -->
+    <div id="projects-section-mount" aria-hidden="true"></div>
+
+    <!-- ===== CONTACT SECTION (rendered by JS) ===== -->
+    <div id="contact-section-mount" aria-hidden="true"></div>
+
+    <!-- ===== FOOTER (rendered by JS) ===== -->
+    <div id="footer-mount" aria-hidden="true"></div>
+
+    <script src="js/header-hero.js"></script>
+    <script src="js/team-skills.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/contact-footer.js"></script>
   </body>
 </html>

@@ -1,0 +1,512 @@
+/* ==========================================================
+   Team Agency Portfolio — Projects Showcase Styles
+   File: css/projects.css
+   NO CSS variables, NO frameworks, NO external libraries
+   ========================================================== */
+
+/* ==========================================================
+   PROJECTS SECTION
+   ========================================================== */
+.projects-section {
+  padding: 96px 24px;
+  background-color: #f5f7fa;
+  transition: background-color 0.35s ease;
+}
+
+body.dark-theme .projects-section {
+  background-color: #0f1117;
+}
+
+.projects-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* ==========================================================
+   FILTER BAR
+   ========================================================== */
+.projects-filter-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn {
+  display: inline-block;
+  padding: 9px 22px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 2px solid #d1d9e6;
+  background-color: #ffffff;
+  color: #4a5568;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease,
+              border-color 0.25s ease, transform 0.2s ease,
+              box-shadow 0.2s ease;
+  letter-spacing: 0.2px;
+}
+
+body.dark-theme .filter-btn {
+  background-color: #1a1d2e;
+  border-color: #2d3748;
+  color: #a0aec0;
+}
+
+.filter-btn:hover,
+.filter-btn:focus-visible {
+  border-color: #2A5298;
+  color: #2A5298;
+  background-color: #eef4ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(42, 82, 152, 0.18);
+  outline: none;
+}
+
+body.dark-theme .filter-btn:hover,
+body.dark-theme .filter-btn:focus-visible {
+  border-color: #5B8FF9;
+  color: #5B8FF9;
+  background-color: #1a2140;
+}
+
+.filter-btn.active {
+  background-color: #2A5298;
+  border-color: #2A5298;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(42, 82, 152, 0.3);
+}
+
+body.dark-theme .filter-btn.active {
+  background-color: #5B8FF9;
+  border-color: #5B8FF9;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(91, 143, 249, 0.35);
+}
+
+/* ==========================================================
+   PROJECTS GRID
+   ========================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ==========================================================
+   PROJECT CARD
+   ========================================================== */
+.project-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: default;
+  /* Entry animation */
+  opacity: 0;
+  animation: cardFadeIn 0.5s ease forwards;
+}
+
+body.dark-theme .project-card {
+  background-color: #1a1d2e;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 56px rgba(42, 82, 152, 0.2);
+}
+
+body.dark-theme .project-card:hover {
+  box-shadow: 0 24px 56px rgba(91, 143, 249, 0.22);
+}
+
+/* Staggered card animation delays */
+.project-card:nth-child(1) { animation-delay: 0.05s; }
+.project-card:nth-child(2) { animation-delay: 0.12s; }
+.project-card:nth-child(3) { animation-delay: 0.19s; }
+.project-card:nth-child(4) { animation-delay: 0.26s; }
+.project-card:nth-child(5) { animation-delay: 0.33s; }
+
+/* ── Card Image ──────────────────────────────────────────── */
+.project-card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.project-card-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  transition: transform 0.4s ease;
+  user-select: none;
+}
+
+.project-card:hover .project-card-image {
+  transform: scale(1.08);
+}
+
+/* Individual project colour themes */
+.project-img-quiz {
+  background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+}
+
+.project-img-expense {
+  background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%);
+}
+
+.project-img-news {
+  background: linear-gradient(135deg, #fce7f3 0%, #fdf2f8 100%);
+}
+
+.project-img-github {
+  background: linear-gradient(135deg, #f3f4f6 0%, #f9fafb 100%);
+}
+
+.project-img-kanban {
+  background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%);
+}
+
+body.dark-theme .project-img-quiz    { background: linear-gradient(135deg, #1e2d5a 0%, #1a2445 100%); }
+body.dark-theme .project-img-expense { background: linear-gradient(135deg, #052e16 0%, #0a3321 100%); }
+body.dark-theme .project-img-news    { background: linear-gradient(135deg, #500724 0%, #3b0518 100%); }
+body.dark-theme .project-img-github  { background: linear-gradient(135deg, #18181b 0%, #27272a 100%); }
+body.dark-theme .project-img-kanban  { background: linear-gradient(135deg, #2e1065 0%, #1e0a4a 100%); }
+
+/* ── Overlay on hover ────────────────────────────────────── */
+.project-card-image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(42, 82, 152, 0.08);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.project-card:hover .project-card-image-wrapper::after {
+  opacity: 1;
+}
+
+/* ── Card Body ───────────────────────────────────────────── */
+.project-card-body {
+  padding: 24px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.project-card-name {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #1a202c;
+  line-height: 1.25;
+  transition: color 0.25s ease;
+}
+
+body.dark-theme .project-card-name {
+  color: #f7fafc;
+}
+
+.project-card:hover .project-card-name {
+  color: #2A5298;
+}
+
+body.dark-theme .project-card:hover .project-card-name {
+  color: #5B8FF9;
+}
+
+.project-card-description {
+  font-size: 0.9rem;
+  color: #718096;
+  line-height: 1.7;
+  flex: 1;
+}
+
+body.dark-theme .project-card-description {
+  color: #a0aec0;
+}
+
+/* ── Tech Tags ───────────────────────────────────────────── */
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+}
+
+.project-tech-tag {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  background-color: #eef4ff;
+  color: #2A5298;
+  border: 1px solid #c3d8fd;
+  transition: background-color 0.25s ease, color 0.25s ease,
+              border-color 0.25s ease, transform 0.2s ease;
+}
+
+body.dark-theme .project-tech-tag {
+  background-color: #1a2140;
+  color: #93c5fd;
+  border-color: #2a3d6a;
+}
+
+.project-card:hover .project-tech-tag {
+  background-color: #2A5298;
+  color: #ffffff;
+  border-color: #2A5298;
+}
+
+body.dark-theme .project-card:hover .project-tech-tag {
+  background-color: #5B8FF9;
+  color: #ffffff;
+  border-color: #5B8FF9;
+}
+
+/* ── Card Footer — Buttons ───────────────────────────────── */
+.project-card-footer {
+  padding: 16px 22px 22px;
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid #edf2f7;
+  transition: border-color 0.35s ease;
+}
+
+body.dark-theme .project-card-footer {
+  border-top-color: #2d3748;
+}
+
+/* ── Project Buttons ─────────────────────────────────────── */
+.project-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease,
+              border-color 0.25s ease, transform 0.2s ease,
+              box-shadow 0.2s ease;
+  text-align: center;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.project-btn:focus-visible {
+  outline: 3px solid #5B8FF9;
+  outline-offset: 2px;
+}
+
+/* View Project — primary */
+.project-btn-view {
+  background-color: #2A5298;
+  color: #ffffff;
+  border-color: #2A5298;
+}
+
+.project-btn-view:hover,
+.project-btn-view:focus-visible {
+  background-color: #1e3d7a;
+  border-color: #1e3d7a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(42, 82, 152, 0.4);
+}
+
+body.dark-theme .project-btn-view {
+  background-color: #5B8FF9;
+  border-color: #5B8FF9;
+}
+
+body.dark-theme .project-btn-view:hover,
+body.dark-theme .project-btn-view:focus-visible {
+  background-color: #4070e0;
+  border-color: #4070e0;
+  box-shadow: 0 6px 20px rgba(91, 143, 249, 0.4);
+}
+
+/* GitHub Repo — secondary */
+.project-btn-github {
+  background-color: transparent;
+  color: #4a5568;
+  border-color: #d1d9e6;
+}
+
+body.dark-theme .project-btn-github {
+  color: #a0aec0;
+  border-color: #2d3748;
+}
+
+.project-btn-github:hover,
+.project-btn-github:focus-visible {
+  background-color: #1a202c;
+  color: #ffffff;
+  border-color: #1a202c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 32, 44, 0.3);
+}
+
+body.dark-theme .project-btn-github:hover,
+body.dark-theme .project-btn-github:focus-visible {
+  background-color: #f7fafc;
+  color: #1a202c;
+  border-color: #f7fafc;
+  box-shadow: 0 6px 20px rgba(247, 250, 252, 0.15);
+}
+
+.project-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Button icons */
+.project-btn-icon {
+  font-size: 0.9rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ==========================================================
+   EMPTY STATE (shown when filter returns no matches)
+   ========================================================== */
+.projects-empty {
+  text-align: center;
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.projects-empty-icon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.projects-empty-text {
+  font-size: 1.05rem;
+  color: #718096;
+}
+
+body.dark-theme .projects-empty-text {
+  color: #a0aec0;
+}
+
+/* ==========================================================
+   ANIMATIONS
+   ========================================================== */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================
+   RESPONSIVE — 768px (Tablet)
+   ========================================================== */
+@media (max-width: 768px) {
+
+  .projects-section {
+    padding: 72px 24px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .project-card-footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .project-btn {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* ==========================================================
+   RESPONSIVE — 480px (Mobile / 320px)
+   ========================================================== */
+@media (max-width: 480px) {
+
+  .projects-section {
+    padding: 56px 16px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .projects-filter-bar {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .project-card-body {
+    padding: 20px 18px 14px;
+  }
+
+  .project-card-footer {
+    padding: 14px 18px 18px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .project-btn {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card:hover,
+  .project-card-image,
+  .project-card:hover .project-card-image,
+  .project-btn:hover,
+  .filter-btn:hover {
+    animation: none;
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
