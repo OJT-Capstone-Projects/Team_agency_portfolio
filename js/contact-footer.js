@@ -30,10 +30,10 @@
 
   /** GitHub profile links for each team member. */
   var githubLinks = [
-    { name: "Abhishek Yadav", url: "https://github.com/abhishekyadav"   },
-    { name: "Priya Sharma",   url: "https://github.com/priyasharma"     },
-    { name: "Rahul Mehta",    url: "https://github.com/rahulmehta"      },
-    { name: "Sneha Patel",    url: "https://github.com/snehapatel"      }
+    { name: "Abhishek Yadav",  url: "https://github.com/abhishekydvtech65"    },
+    { name: "Sumit Tiwari",    url: "https://github.com/sumittiwari1302"       },
+    { name: "Rudraabhishek",   url: "https://github.com/rudraabhishek-collab"  },
+    { name: "Khushi Shah",     url: "https://github.com/shahkhushi0307"        }
   ];
 
   /* =========================================================
@@ -724,7 +724,7 @@
     socialList.setAttribute("aria-label", "Social links");
 
     var socialItems = [
-      { href: "https://github.com", label: "GitHub", icon: null, useGithubSvg: true },
+      { href: "https://github.com/OJT-Capstone-Projects", label: "GitHub Organisation", icon: null, useGithubSvg: true },
       { href: "mailto:hello@teamagency.com", label: "Email us", icon: "📧", useGithubSvg: false }
     ];
 
