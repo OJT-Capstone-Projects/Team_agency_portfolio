@@ -18,35 +18,39 @@
      DATA
      ========================================================= */
 
-  /** @type {Array<{name: string, role: string, avatar: string, skills: string[], github: string}>} */
+  /** @type {Array<{name: string, role: string, avatar: string, bio: string, skills: string[], github: string}>} */
   var teamMembers = [
     {
       name:   "Abhishek Yadav",
-      role:   "Full Stack Developer",
-      avatar: "👨‍💻",
+      role:   "Frontend Developer",
+      avatar: "",
+      bio:    "Building responsive, clean UIs with a passion for great user experiences.",
       skills: ["HTML", "CSS", "JavaScript", "GitHub"],
-      github: "https://github.com/OJT-Capstone-Projects"
+      github: "https://github.com/abhishekydvtech65"
     },
     {
       name:   "Sumit Tiwari",
       role:   "Frontend Developer",
-      avatar: "👨‍🔬",
+      avatar: "",
+      bio:    "Crafting interactive UIs and seamless user experiences.",
       skills: ["JavaScript", "API Integration", "CSS", "Problem Solving"],
-      github: "https://github.com/OJT-Capstone-Projects"
+      github: "https://github.com/sumittiwari1302"
     },
     {
-      name:   "Rudra",
-      role:   "UI Developer",
-      avatar: "👨‍🎨",
-      skills: ["HTML", "CSS", "JavaScript", "Drag & Drop API"],
-      github: "https://github.com/OJT-Capstone-Projects"
+      name:   "Rudraabhishek",
+      role:   "Aspiring AI Engineer",
+      avatar: "",
+      bio:    "Building intelligent systems & real-world solutions. Learning ML, DSA & Web Dev.",
+      skills: ["HTML", "CSS", "JavaScript", "Machine Learning"],
+      github: "https://github.com/rudraabhishek-collab"
     },
     {
       name:   "Khushi Shah",
       role:   "Frontend Engineer",
-      avatar: "👩‍💼",
+      avatar: "",
+      bio:    "Turning designs into pixel-perfect, accessible web experiences.",
       skills: ["HTML", "CSS", "JavaScript", "localStorage"],
-      github: "https://github.com/OJT-Capstone-Projects"
+      github: "https://github.com/shahkhushi0307"
     }
   ];
 
@@ -149,15 +153,22 @@
     card.classList.add("team-card");
     card.setAttribute("aria-label", member.name + ", " + member.role);
 
-    /* ── Image wrapper ── */
+    /* ── Image wrapper — initials avatar ── */
     var imgWrapper = document.createElement("div");
     imgWrapper.classList.add("team-card-image-wrapper");
+
+    var initials = member.name
+      .split(" ")
+      .map(function (w) { return w.charAt(0); })
+      .join("")
+      .toUpperCase()
+      .slice(0, 2);
 
     var placeholder = document.createElement("div");
     placeholder.classList.add("team-card-avatar-placeholder");
     placeholder.setAttribute("role", "img");
     placeholder.setAttribute("aria-label", member.name + " avatar");
-    placeholder.innerText = member.avatar;
+    placeholder.innerText = initials;
 
     imgWrapper.appendChild(placeholder);
     card.appendChild(imgWrapper);
@@ -175,6 +186,11 @@
     var roleEl = document.createElement("p");
     roleEl.classList.add("team-card-role");
     roleEl.innerText = member.role;
+
+    /* Bio */
+    var bioEl = document.createElement("p");
+    bioEl.classList.add("team-card-bio");
+    bioEl.innerText = member.bio;
 
     /* Skills list — uses map() to build the items, forEach() to append */
     var skillsList = document.createElement("ul");
@@ -196,6 +212,7 @@
 
     body.appendChild(nameEl);
     body.appendChild(roleEl);
+    body.appendChild(bioEl);
     body.appendChild(skillsList);
     card.appendChild(body);
 

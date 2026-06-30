@@ -18,57 +18,28 @@
      DATA — Project definitions
      ========================================================= */
 
-  /**
-   * @typedef {Object} Project
-   * @property {string}   id          - Unique kebab-case identifier
-   * @property {string}   name        - Display name
-   * @property {string}   description - Short description shown on card
-   * @property {string[]} tech        - Technology tags
-   * @property {string}   emoji       - Visual emoji used as project image
-   * @property {string}   imgClass    - CSS class for image background gradient
-   * @property {string}   category    - Used by filter tabs (matches filter key)
-   * @property {string}   liveUrl     - "View Project" link target
-   * @property {string}   githubUrl   - "GitHub Repository" link target
-   */
-
-  /** @type {Project[]} */
+  /** @type {Array} */
   var projects = [
     {
-      id:          "quiz-app",
-      name:        "Interactive Quiz App",
-      description: "A dynamic quiz experience with multiple-choice questions, " +
-                   "a live score tracker, and a timed countdown. Questions are " +
-                   "loaded from a data array and the UI updates entirely without " +
-                   "page reloads.",
-      tech:        ["HTML", "CSS", "JavaScript", "DOM API"],
-      emoji:       "🧠",
-      imgClass:    "project-img-quiz",
+      id:          "kanban-board",
+      name:        "Kanban Task Board",
+      description: "Trello-style drag-and-drop board with To Do, In Progress, and Done columns. Tasks are created, edited, moved, and deleted entirely in the browser with localStorage persistence.",
+      tech:        ["HTML", "CSS", "JavaScript", "Drag & Drop API", "localStorage"],
+      emoji:       "📋",
+      imgClass:    "project-img-kanban",
+      accent:      "#7c3aed",
       category:    "javascript",
-      liveUrl:     "https://ojt-capstone-projects.github.io/Interactive-quiz-app/",
-      githubUrl:   "https://github.com/OJT-Capstone-Projects/Interactive-quiz-app"
-    },
-    {
-      id:          "expense-tracker",
-      name:        "Expense Tracker",
-      description: "Track income and expenses in real time. Entries are stored " +
-                   "in localStorage, displayed in a scrollable ledger, and " +
-                   "summarised with a live balance that updates on every change.",
-      tech:        ["HTML", "CSS", "JavaScript", "localStorage"],
-      emoji:       "💰",
-      imgClass:    "project-img-expense",
-      category:    "javascript",
-      liveUrl:     "https://ojt-capstone-projects.github.io/expense-tracker/",
-      githubUrl:   "https://github.com/OJT-Capstone-Projects/expense-tracker"
+      liveUrl:     "https://ojt-capstone-projects.github.io/Kanban--Task-board/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/Kanban--Task-board"
     },
     {
       id:          "live-news-feed",
       name:        "Live News Feed",
-      description: "Fetches the latest headlines from a public news API and " +
-                   "renders them as filterable cards. Supports keyword search " +
-                   "and category filtering with zero-reload article discovery.",
-      tech:        ["HTML", "CSS", "JavaScript", "Fetch API", "REST"],
+      description: "The Bulletin Times — a newspaper-style platform delivering the latest headlines from trusted sources across India and the world, powered by a public news REST API.",
+      tech:        ["HTML", "CSS", "JavaScript", "Fetch API", "REST API"],
       emoji:       "📰",
       imgClass:    "project-img-news",
+      accent:      "#db2777",
       category:    "api",
       liveUrl:     "https://ojt-capstone-projects.github.io/Live-News-Feed/",
       githubUrl:   "https://github.com/OJT-Capstone-Projects/Live-News-Feed"
@@ -76,39 +47,47 @@
     {
       id:          "github-explorer",
       name:        "GitHub Developer Explorer",
-      description: "Search any GitHub username and instantly view their public " +
-                   "repositories, follower count, and profile details — all " +
-                   "pulled live from the GitHub REST API.",
+      description: "Search any GitHub username and instantly view public repositories, follower count, language statistics, and full profile details pulled live from the GitHub REST API.",
       tech:        ["HTML", "CSS", "JavaScript", "GitHub API", "Fetch API"],
       emoji:       "🐙",
       imgClass:    "project-img-github",
+      accent:      "#0f172a",
       category:    "api",
       liveUrl:     "https://ojt-capstone-projects.github.io/Github-developer-explorer/",
       githubUrl:   "https://github.com/OJT-Capstone-Projects/Github-developer-explorer"
     },
     {
-      id:          "kanban-board",
-      name:        "Kanban Task Board",
-      description: "A drag-and-drop task management board with three columns: " +
-                   "To Do, In Progress, and Done. Tasks are created, moved, and " +
-                   "deleted in the browser with full localStorage persistence.",
-      tech:        ["HTML", "CSS", "JavaScript", "Drag & Drop API", "localStorage"],
-      emoji:       "📋",
-      imgClass:    "project-img-kanban",
+      id:          "quiz-app",
+      name:        "Interactive Quiz App",
+      description: "Quiz Master — full-screen MCQ app with subject selection, countdown timer, instant answer feedback, score tracking, and a light/dark theme switcher. Pure vanilla JavaScript.",
+      tech:        ["HTML", "CSS", "JavaScript", "DOM API", "Timer API"],
+      emoji:       "🧠",
+      imgClass:    "project-img-quiz",
+      accent:      "#1d4ed8",
       category:    "javascript",
-      liveUrl:     "https://ojt-capstone-projects.github.io/Kanban--Task-board/",
-      githubUrl:   "https://github.com/OJT-Capstone-Projects/Kanban--Task-board"
+      liveUrl:     "https://ojt-capstone-projects.github.io/Interactive-quiz-app/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/Interactive-quiz-app"
+    },
+    {
+      id:          "expense-tracker",
+      name:        "Expense Tracker",
+      description: "Personal finance manager to track income and expenses. Features real-time balance, transaction ledger, spending breakdown, and full localStorage persistence across sessions.",
+      tech:        ["HTML", "CSS", "JavaScript", "localStorage", "DOM API"],
+      emoji:       "💰",
+      imgClass:    "project-img-expense",
+      accent:      "#059669",
+      category:    "javascript",
+      liveUrl:     "https://ojt-capstone-projects.github.io/expense-tracker/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/expense-tracker"
     },
     {
       id:          "team-agency-portfolio",
       name:        "Team Agency Portfolio",
-      description: "This very site — a multi-section agency portfolio built " +
-                   "with vanilla HTML, CSS, and JavaScript. Features dark/light " +
-                   "theme, scroll-spy navigation, animated counters, and fully " +
-                   "dynamic section rendering.",
+      description: "This very site — a multi-section agency portfolio featuring dark/light theme, scroll-spy nav, animated counters, dynamic JS rendering, and a validated contact form.",
       tech:        ["HTML", "CSS", "JavaScript", "DOM API", "localStorage"],
       emoji:       "🚀",
-      imgClass:    "project-img-kanban",
+      imgClass:    "project-img-portfolio",
+      accent:      "#2A5298",
       category:    "javascript",
       liveUrl:     "https://ojt-capstone-projects.github.io/Team-Agency-Portfolio/",
       githubUrl:   "https://github.com/OJT-Capstone-Projects/Team-Agency-Portfolio"
@@ -119,35 +98,28 @@
      FILTER CONFIGURATION
      ========================================================= */
 
-  /** @type {Array<{label: string, value: string}>} */
   var filters = [
     { label: "All Projects", value: "all"        },
     { label: "JavaScript",   value: "javascript" },
     { label: "API Projects", value: "api"        }
   ];
 
-  /* Currently selected filter — starts at "all" */
   var activeFilter = "all";
 
   /* =========================================================
      HELPERS
      ========================================================= */
 
-  /**
-   * Build the GitHub SVG icon as an inline SVGElement.
-   * @returns {SVGElement}
-   */
+  /** Inline GitHub SVG icon. */
   function createGithubSvg() {
     var svg  = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-
     svg.setAttribute("viewBox", "0 0 24 24");
     svg.setAttribute("width", "14");
     svg.setAttribute("height", "14");
     svg.setAttribute("aria-hidden", "true");
-    svg.style.fill        = "currentColor";
-    svg.style.flexShrink  = "0";
-
+    svg.style.fill       = "currentColor";
+    svg.style.flexShrink = "0";
     path.setAttribute(
       "d",
       "M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387" +
@@ -163,9 +135,113 @@
       "1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 " +
       "17.3 24 12c0-6.627-5.373-12-12-12z"
     );
-
     svg.appendChild(path);
     return svg;
+  }
+
+  /** Inline external-link SVG icon. */
+  function createLinkSvg() {
+    var svg  = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("width", "13");
+    svg.setAttribute("height", "13");
+    svg.setAttribute("aria-hidden", "true");
+    svg.style.fill       = "currentColor";
+    svg.style.flexShrink = "0";
+    path.setAttribute(
+      "d",
+      "M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6" +
+      "M10 14L21 3"
+    );
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "currentColor");
+    path.setAttribute("stroke-width", "2");
+    path.setAttribute("stroke-linecap", "round");
+    path.setAttribute("stroke-linejoin", "round");
+    svg.appendChild(path);
+    return svg;
+  }
+
+  /* =========================================================
+     PREVIEW IMAGE BUILDER
+     Uses a screenshot service to get a real thumbnail of the
+     live site. Falls back to a styled card if the image errors.
+     ========================================================= */
+
+  /**
+   * Build the visual preview area for a project card.
+   * Tries to load a screenshot from microlink.io (free, no key needed).
+   * Falls back to the styled emoji card on error.
+   * @param {Object} project
+   * @returns {HTMLElement}
+   */
+  function createProjectPreview(project) {
+    var wrapper = document.createElement("div");
+    wrapper.classList.add("project-card-image-wrapper");
+
+    /* ── Screenshot image ── */
+    var img = document.createElement("img");
+    img.classList.add("project-screenshot");
+    img.setAttribute("alt", project.name + " live preview screenshot");
+    img.setAttribute("loading", "lazy");
+    img.setAttribute("decoding", "async");
+
+    /* microlink.io screenshot API — free, no API key required */
+    var screenshotUrl =
+      "https://api.microlink.io/?url=" +
+      encodeURIComponent(project.liveUrl) +
+      "&screenshot=true&meta=false&embed=screenshot.url";
+    img.setAttribute("src", screenshotUrl);
+
+    /* ── Fallback card (always in DOM, hidden behind image) ── */
+    var fallback = document.createElement("div");
+    fallback.classList.add("project-card-fallback", project.imgClass);
+    fallback.setAttribute("aria-hidden", "true");
+
+    var fallbackEmoji = document.createElement("span");
+    fallbackEmoji.classList.add("project-fallback-emoji");
+    fallbackEmoji.innerText = project.emoji;
+
+    var fallbackName = document.createElement("span");
+    fallbackName.classList.add("project-fallback-name");
+    fallbackName.innerText = project.name;
+
+    fallback.appendChild(fallbackEmoji);
+    fallback.appendChild(fallbackName);
+
+    /* Show/hide logic */
+    img.addEventListener("load", function () {
+      img.classList.add("screenshot-loaded");
+      fallback.classList.add("screenshot-ready");
+    });
+    img.addEventListener("error", function () {
+      img.style.display = "none";
+      fallback.classList.add("fallback-visible");
+    });
+
+    /* ── Accent bar at the bottom of the preview ── */
+    var accentBar = document.createElement("div");
+    accentBar.classList.add("project-accent-bar");
+    accentBar.style.backgroundColor = project.accent;
+
+    /* ── Hover overlay with "View Live" CTA ── */
+    var overlay = document.createElement("div");
+    overlay.classList.add("project-preview-overlay");
+    overlay.setAttribute("aria-hidden", "true");
+
+    var overlayBtn = document.createElement("span");
+    overlayBtn.classList.add("project-overlay-btn");
+    overlayBtn.innerText = "View Live ↗";
+
+    overlay.appendChild(overlayBtn);
+
+    wrapper.appendChild(img);
+    wrapper.appendChild(fallback);
+    wrapper.appendChild(accentBar);
+    wrapper.appendChild(overlay);
+
+    return wrapper;
   }
 
   /* =========================================================
@@ -173,35 +249,30 @@
      ========================================================= */
 
   /**
-   * Build and return a single project card <article> element.
-   * Uses: createElement(), appendChild()
-   * @param {Project} project
+   * Build and return a single project card <article>.
+   * Uses: createElement(), appendChild(), innerText, innerHTML
+   * @param {Object} project
    * @returns {HTMLElement}
    */
   function createProjectCard(project) {
 
-    /* ── Outer card ── */
     var card = document.createElement("article");
     card.classList.add("project-card");
     card.setAttribute("aria-label", project.name);
     card.setAttribute("data-category", project.category);
 
-    /* ── Image wrapper ── */
-    var imgWrapper = document.createElement("div");
-    imgWrapper.classList.add("project-card-image-wrapper");
+    /* Preview image area */
+    var preview = createProjectPreview(project);
+    card.appendChild(preview);
 
-    var imgEl = document.createElement("div");
-    imgEl.classList.add("project-card-image", project.imgClass);
-    imgEl.setAttribute("role", "img");
-    imgEl.setAttribute("aria-label", project.name + " project illustration");
-    imgEl.innerText = project.emoji;
-
-    imgWrapper.appendChild(imgEl);
-    card.appendChild(imgWrapper);
-
-    /* ── Card body ── */
+    /* Card body */
     var body = document.createElement("div");
     body.classList.add("project-card-body");
+
+    /* Category badge */
+    var badge = document.createElement("span");
+    badge.classList.add("project-category-badge");
+    badge.innerText = project.category === "api" ? "API Project" : "JavaScript";
 
     /* Project name */
     var nameEl = document.createElement("h3");
@@ -213,10 +284,10 @@
     descEl.classList.add("project-card-description");
     descEl.innerText = project.description;
 
-    /* Tech tags — map() builds tag elements, forEach() appends them */
+    /* Tech tags — map() + forEach() */
     var techList = document.createElement("ul");
     techList.classList.add("project-tech-list");
-    techList.setAttribute("aria-label", "Technologies used in " + project.name);
+    techList.setAttribute("aria-label", "Technologies used");
 
     var tagItems = project.tech.map(function (techName) {
       var li   = document.createElement("li");
@@ -226,54 +297,41 @@
       li.appendChild(span);
       return li;
     });
+    tagItems.forEach(function (item) { techList.appendChild(item); });
 
-    tagItems.forEach(function (tagItem) {
-      techList.appendChild(tagItem);
-    });
-
+    body.appendChild(badge);
     body.appendChild(nameEl);
     body.appendChild(descEl);
     body.appendChild(techList);
     card.appendChild(body);
 
-    /* ── Card footer — action buttons ── */
+    /* Card footer — action buttons */
     var footer = document.createElement("div");
     footer.classList.add("project-card-footer");
 
-    /* View Project button */
+    /* View Live button */
     var viewBtn = document.createElement("a");
     viewBtn.classList.add("project-btn", "project-btn-view");
     viewBtn.setAttribute("href", project.liveUrl);
     viewBtn.setAttribute("target", "_blank");
     viewBtn.setAttribute("rel", "noopener noreferrer");
-    viewBtn.setAttribute("aria-label", "View live demo of " + project.name);
-
-    var viewIcon = document.createElement("span");
-    viewIcon.classList.add("project-btn-icon");
-    viewIcon.setAttribute("aria-hidden", "true");
-    viewIcon.innerText = "🔗";
-
+    viewBtn.setAttribute("aria-label", "Open live demo of " + project.name);
+    viewBtn.appendChild(createLinkSvg());
     var viewText = document.createElement("span");
-    viewText.innerText = "View Project";
-
-    viewBtn.appendChild(viewIcon);
+    viewText.innerText = "View Live";
     viewBtn.appendChild(viewText);
 
-    /* GitHub Repo button */
+    /* GitHub button */
     var githubBtn = document.createElement("a");
     githubBtn.classList.add("project-btn", "project-btn-github");
     githubBtn.setAttribute("href", project.githubUrl);
     githubBtn.setAttribute("target", "_blank");
     githubBtn.setAttribute("rel", "noopener noreferrer");
-    githubBtn.setAttribute("aria-label", "View " + project.name + " on GitHub");
-
-    var githubIcon = createGithubSvg();
-
-    var githubText = document.createElement("span");
-    githubText.innerText = "GitHub";
-
-    githubBtn.appendChild(githubIcon);
-    githubBtn.appendChild(githubText);
+    githubBtn.setAttribute("aria-label", "View source of " + project.name + " on GitHub");
+    githubBtn.appendChild(createGithubSvg());
+    var ghText = document.createElement("span");
+    ghText.innerText = "Source Code";
+    githubBtn.appendChild(ghText);
 
     footer.appendChild(viewBtn);
     footer.appendChild(githubBtn);
@@ -283,17 +341,10 @@
   }
 
   /* =========================================================
-     FILTER BAR BUILDER
+     FILTER BAR
      ========================================================= */
 
-  /**
-   * Build the filter button bar.
-   * Uses: createElement(), appendChild(), forEach()
-   * @param {Function} onFilterChange - callback(filterValue: string)
-   * @returns {HTMLElement}
-   */
   function createFilterBar(onFilterChange) {
-
     var bar = document.createElement("div");
     bar.classList.add("projects-filter-bar");
     bar.setAttribute("role", "group");
@@ -325,150 +376,86 @@
 
   /* =========================================================
      GRID RENDERER
+     Uses: filter(), map(), forEach()
      ========================================================= */
 
-  /**
-   * Render the project grid, respecting the active filter.
-   * Uses: filter() to select matching projects,
-   *       map()    to create card elements,
-   *       forEach() to append them.
-   * @param {HTMLElement}  grid         - The grid container element
-   * @param {HTMLElement}  filterBarEl  - The filter bar element (to sync button states)
-   * @param {string}       filterValue  - "all" | "javascript" | "api"
-   */
   function renderGrid(grid, filterBarEl, filterValue) {
-
-    /* Clear previous content */
     grid.innerHTML = "";
 
-    /* filter() selects matching projects */
-    var visible = projects.filter(function (project) {
-      if (filterValue === "all") { return true; }
-      return project.category === filterValue;
+    var visible = projects.filter(function (p) {
+      return filterValue === "all" || p.category === filterValue;
     });
 
-    /* Sync filter button aria-pressed states */
-    var filterBtns = filterBarEl.querySelectorAll(".filter-btn");
-    filterBtns.forEach(function (btn) {
+    /* Sync filter button states */
+    var btns = filterBarEl.querySelectorAll(".filter-btn");
+    btns.forEach(function (btn) {
       var isActive = btn.getAttribute("data-filter") === filterValue;
-      if (isActive) {
-        btn.classList.add("active");
-        btn.setAttribute("aria-pressed", "true");
-      } else {
-        btn.classList.remove("active");
-        btn.setAttribute("aria-pressed", "false");
-      }
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
 
-    /* Handle empty state */
     if (visible.length === 0) {
-      var emptyEl  = document.createElement("div");
-      emptyEl.classList.add("projects-empty");
-
-      var emptyIcon = document.createElement("span");
-      emptyIcon.classList.add("projects-empty-icon");
-      emptyIcon.setAttribute("aria-hidden", "true");
-      emptyIcon.innerText = "🔍";
-
-      var emptyText = document.createElement("p");
-      emptyText.classList.add("projects-empty-text");
-      emptyText.innerText = "No projects found for this filter.";
-
-      emptyEl.appendChild(emptyIcon);
-      emptyEl.appendChild(emptyText);
-      grid.appendChild(emptyEl);
+      var empty = document.createElement("div");
+      empty.classList.add("projects-empty");
+      empty.innerHTML = '<span class="projects-empty-icon" aria-hidden="true">🔍</span>' +
+                        '<p class="projects-empty-text">No projects match this filter.</p>';
+      grid.appendChild(empty);
       return;
     }
 
-    /* map() builds card elements */
-    var cards = visible.map(function (project) {
-      return createProjectCard(project);
-    });
-
-    /* forEach() appends them to the grid */
-    cards.forEach(function (card) {
-      grid.appendChild(card);
-    });
+    var cards = visible.map(function (p) { return createProjectCard(p); });
+    cards.forEach(function (card) { grid.appendChild(card); });
   }
 
   /* =========================================================
      SECTION BUILDER
      ========================================================= */
 
-  /**
-   * Build and inject the entire Projects Showcase section.
-   * Replaces the #projects-section-mount placeholder in the DOM.
-   * Uses: querySelector(), querySelectorAll()
-   */
   function renderProjectsSection() {
     var placeholder = document.getElementById("projects-section-mount");
     if (!placeholder) { return; }
 
-    /* ── Section ── */
     var section = document.createElement("section");
     section.id = "projects";
     section.classList.add("projects-section");
     section.setAttribute("aria-labelledby", "projects-heading");
 
-    /* ── Inner wrapper ── */
     var inner = document.createElement("div");
     inner.classList.add("projects-inner");
 
-    /* ── Section header ── */
+    /* Header */
     var header = document.createElement("div");
     header.classList.add("section-header");
-
-    var label = document.createElement("p");
-    label.classList.add("section-label");
-    label.innerText = "What We've Built";
-
-    var title = document.createElement("h2");
-    title.classList.add("section-title");
-    title.id = "projects-heading";
-    title.innerText = "Projects Showcase";
-
-    var subtitle = document.createElement("p");
-    subtitle.classList.add("section-subtitle");
-    subtitle.innerText = "A curated collection of projects built with vanilla HTML, CSS, and JavaScript.";
-
-    header.appendChild(label);
-    header.appendChild(title);
-    header.appendChild(subtitle);
+    header.innerHTML =
+      '<p class="section-label">What We\'ve Built</p>' +
+      '<h2 class="section-title" id="projects-heading">Projects Showcase</h2>' +
+      '<p class="section-subtitle">Six real projects built with vanilla HTML, CSS &amp; JavaScript — click any card to see it live.</p>';
     inner.appendChild(header);
 
-    /* ── Grid container ── */
+    /* Grid */
     var grid = document.createElement("div");
     grid.classList.add("projects-grid");
     grid.setAttribute("role", "list");
-    grid.setAttribute("aria-label", "Project cards");
 
-    /* ── Filter bar — receives a callback to re-render the grid ── */
-    var filterBar = createFilterBar(function (filterValue) {
-      activeFilter = filterValue;
-      renderGrid(grid, filterBar, filterValue);
+    /* Filter bar */
+    var filterBar = createFilterBar(function (val) {
+      activeFilter = val;
+      renderGrid(grid, filterBar, val);
     });
 
     inner.appendChild(filterBar);
     inner.appendChild(grid);
     section.appendChild(inner);
 
-    /* Replace mount placeholder */
     placeholder.parentNode.replaceChild(section, placeholder);
 
-    /* Initial render with "all" filter */
     renderGrid(grid, filterBar, activeFilter);
   }
 
   /* =========================================================
-     SCROLL-IN ANIMATION (IntersectionObserver)
-     Triggers card entry animations as the section scrolls
-     into view, using querySelectorAll() + forEach().
+     SCROLL-IN ANIMATION
      ========================================================= */
 
-  /**
-   * Observe the projects section. When it enters the viewport,
-   * add the .in-view class to trigger staggered card animations.
-   */
   function initScrollAnimation() {
     if (!("IntersectionObserver" in window)) { return; }
 
@@ -478,16 +465,15 @@
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          /* Re-trigger card fade-in by refreshing animation */
           var cards = projectsSection.querySelectorAll(".project-card");
           cards.forEach(function (card, index) {
-            card.style.animationDelay = (index * 0.07) + "s";
+            card.style.animationDelay = (index * 0.08) + "s";
             card.style.animationPlayState = "running";
           });
           observer.disconnect();
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
 
     observer.observe(projectsSection);
   }
@@ -495,6 +481,7 @@
   /* =========================================================
      INIT
      ========================================================= */
+
   function init() {
     renderProjectsSection();
     initScrollAnimation();
