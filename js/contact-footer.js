@@ -38,64 +38,10 @@
 
   /* =========================================================
      1. THEME TOGGLE
-        Reads saved preference from localStorage on page load
-        and writes back whenever the user clicks the button.
+        Theme is fully managed by header-hero.js.
+        This file reads the current theme only when needed —
+        no duplicate listeners, no double-toggle.
      ========================================================= */
-
-  /**
-   * Return the stored theme or fall back to "light".
-   * Uses: localStorage.getItem()
-   * @returns {string} "light" | "dark"
-   */
-  function getSavedTheme() {
-    var saved = localStorage.getItem("ta-theme");
-    return saved === "dark" ? "dark" : "light";
-  }
-
-  /**
-   * Apply a theme class to <body> and update the toggle icon.
-   * Uses: localStorage.setItem()
-   * @param {string} theme - "light" | "dark"
-   */
-  function applyTheme(theme) {
-    var body      = document.body;
-    var themeIcon = document.getElementById("theme-icon");
-    var themeBtn  = document.getElementById("theme-toggle");
-
-    if (theme === "dark") {
-      body.classList.remove("light-theme");
-      body.classList.add("dark-theme");
-      if (themeIcon) { themeIcon.textContent = "🌙"; }
-      if (themeBtn)  { themeBtn.setAttribute("aria-label", "Switch to light theme"); }
-    } else {
-      body.classList.remove("dark-theme");
-      body.classList.add("light-theme");
-      if (themeIcon) { themeIcon.textContent = "☀️"; }
-      if (themeBtn)  { themeBtn.setAttribute("aria-label", "Switch to dark theme"); }
-    }
-
-    localStorage.setItem("ta-theme", theme);
-  }
-
-  /** Toggle between light ↔ dark. */
-  function toggleTheme() {
-    var currentTheme = document.body.classList.contains("dark-theme") ? "dark" : "light";
-    applyTheme(currentTheme === "dark" ? "light" : "dark");
-  }
-
-  /**
-   * Wire up the theme toggle button that already exists in the HTML.
-   * The button is part of the header built in header-hero.js.
-   */
-  function initThemeToggle() {
-    /* Apply the persisted theme immediately to prevent flash */
-    applyTheme(getSavedTheme());
-
-    var themeBtn = document.getElementById("theme-toggle");
-    if (themeBtn) {
-      themeBtn.addEventListener("click", toggleTheme);
-    }
-  }
 
   /* =========================================================
      2. FORM VALIDATION HELPERS
@@ -858,7 +804,6 @@
      INIT
      ========================================================= */
   function init() {
-    initThemeToggle();
     renderContactSection();
     renderFooter();
   }
