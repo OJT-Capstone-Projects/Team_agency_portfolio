@@ -24,29 +24,29 @@
       name:   "Abhishek Yadav",
       role:   "Full Stack Developer",
       avatar: "👨‍💻",
-      skills: ["HTML", "CSS", "JavaScript", "Node.js"],
-      github: "https://github.com/abhishekyadav"
+      skills: ["HTML", "CSS", "JavaScript", "GitHub"],
+      github: "https://github.com/OJT-Capstone-Projects"
     },
     {
-      name:   "Priya Sharma",
-      role:   "UI/UX Designer",
-      avatar: "👩‍🎨",
-      skills: ["Figma", "CSS", "Accessibility", "Prototyping"],
-      github: "https://github.com/priyasharma"
-    },
-    {
-      name:   "Rahul Mehta",
-      role:   "Frontend Engineer",
+      name:   "Sumit Tiwari",
+      role:   "Frontend Developer",
       avatar: "👨‍🔬",
-      skills: ["JavaScript", "API Integration", "Git", "Performance"],
-      github: "https://github.com/rahulmehta"
+      skills: ["JavaScript", "API Integration", "CSS", "Problem Solving"],
+      github: "https://github.com/OJT-Capstone-Projects"
     },
     {
-      name:   "Sneha Patel",
-      role:   "Problem Solver & Dev",
+      name:   "Rudra",
+      role:   "UI Developer",
+      avatar: "👨‍🎨",
+      skills: ["HTML", "CSS", "JavaScript", "Drag & Drop API"],
+      github: "https://github.com/OJT-Capstone-Projects"
+    },
+    {
+      name:   "Khushi Shah",
+      role:   "Frontend Engineer",
       avatar: "👩‍💼",
-      skills: ["Problem Solving", "HTML", "CSS", "GitHub"],
-      github: "https://github.com/snehapatel"
+      skills: ["HTML", "CSS", "JavaScript", "localStorage"],
+      github: "https://github.com/OJT-Capstone-Projects"
     }
   ];
 

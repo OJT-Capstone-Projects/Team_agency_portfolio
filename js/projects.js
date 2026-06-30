@@ -44,8 +44,8 @@
       emoji:       "🧠",
       imgClass:    "project-img-quiz",
       category:    "javascript",
-      liveUrl:     "https://github.com",
-      githubUrl:   "https://github.com"
+      liveUrl:     "https://ojt-capstone-projects.github.io/Interactive-quiz-app/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/Interactive-quiz-app"
     },
     {
       id:          "expense-tracker",
@@ -57,8 +57,8 @@
       emoji:       "💰",
       imgClass:    "project-img-expense",
       category:    "javascript",
-      liveUrl:     "https://github.com",
-      githubUrl:   "https://github.com"
+      liveUrl:     "https://ojt-capstone-projects.github.io/expense-tracker/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/expense-tracker"
     },
     {
       id:          "live-news-feed",
@@ -70,8 +70,8 @@
       emoji:       "📰",
       imgClass:    "project-img-news",
       category:    "api",
-      liveUrl:     "https://github.com",
-      githubUrl:   "https://github.com"
+      liveUrl:     "https://ojt-capstone-projects.github.io/Live-News-Feed/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/Live-News-Feed"
     },
     {
       id:          "github-explorer",
@@ -83,8 +83,8 @@
       emoji:       "🐙",
       imgClass:    "project-img-github",
       category:    "api",
-      liveUrl:     "https://github.com",
-      githubUrl:   "https://github.com"
+      liveUrl:     "https://ojt-capstone-projects.github.io/Github-developer-explorer/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/Github-developer-explorer"
     },
     {
       id:          "kanban-board",
@@ -96,8 +96,22 @@
       emoji:       "📋",
       imgClass:    "project-img-kanban",
       category:    "javascript",
-      liveUrl:     "https://github.com",
-      githubUrl:   "https://github.com"
+      liveUrl:     "https://ojt-capstone-projects.github.io/Kanban--Task-board/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/Kanban--Task-board"
+    },
+    {
+      id:          "team-agency-portfolio",
+      name:        "Team Agency Portfolio",
+      description: "This very site — a multi-section agency portfolio built " +
+                   "with vanilla HTML, CSS, and JavaScript. Features dark/light " +
+                   "theme, scroll-spy navigation, animated counters, and fully " +
+                   "dynamic section rendering.",
+      tech:        ["HTML", "CSS", "JavaScript", "DOM API", "localStorage"],
+      emoji:       "🚀",
+      imgClass:    "project-img-kanban",
+      category:    "javascript",
+      liveUrl:     "https://ojt-capstone-projects.github.io/Team-Agency-Portfolio/",
+      githubUrl:   "https://github.com/OJT-Capstone-Projects/Team-Agency-Portfolio"
     }
   ];
 
